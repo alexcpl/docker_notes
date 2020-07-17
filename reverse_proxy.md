@@ -3,9 +3,7 @@
 http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/
 
 ## Create a docker network first
-
-
-======================== docker-compose.yml ==========================================
+======================== docker-compose.yml ==========================================  
 version: '3'
 
 services:
