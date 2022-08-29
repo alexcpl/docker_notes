@@ -28,7 +28,7 @@ $ dpkg --install webmin_2.000_all.deb
 # edit the /etc/apt/sources.list file on your system and add the line :
 deb https://download.webmin.com/download/repository sarge contrib
 
-# fetch and install my GPG key
+# fetch and install my GPG key for ubuntu 22.04
 $ cd /root
 $ wget https://download.webmin.com/jcameron-key.asc
 $ cat jcameron-key.asc | gpg --dearmor >/usr/share/keyrings/jcameron-key.gpg
