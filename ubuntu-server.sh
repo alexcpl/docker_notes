@@ -23,19 +23,3 @@ $ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
 # Install webmin - https://webmin.com/deb.html
 $ wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
 $ dpkg --install webmin_2.000_all.deb
-
-# Using the Webmin APT repository
-# edit the /etc/apt/sources.list file on your system and add the line :
-deb https://download.webmin.com/download/repository sarge contrib
-
-# fetch and install my GPG key for ubuntu 22.04
-$ cd /root
-$ wget https://download.webmin.com/jcameron-key.asc
-$ apt install gpg
-$ cat jcameron-key.asc | gpg --dearmor >/usr/share/keyrings/jcameron-key.gpg
-$ reboot
-
-# install webmin
-$ apt-get install apt-transport-https
-$ apt-get update
-$ apt-get install webmin
