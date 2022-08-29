@@ -26,3 +26,4 @@ $ apt-get install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runt
 $ dpkg --install webmin_2.000_all.deb
 
 # access control panel --> https://server_ip:10000
+# to access chrome block page click on any empty space and type thisisunsafe
