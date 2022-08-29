@@ -33,6 +33,7 @@ $ cd /root
 $ wget https://download.webmin.com/jcameron-key.asc
 $ apt install gpg
 $ cat jcameron-key.asc | gpg --dearmor >/usr/share/keyrings/jcameron-key.gpg
+$ reboot
 
 # install webmin
 $ apt-get install apt-transport-https
