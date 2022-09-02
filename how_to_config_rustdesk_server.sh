@@ -14,9 +14,9 @@ services:
       - 21116:21116/udp
       - 21118:21118
     image: rustdesk/rustdesk-server:latest
-    command: hbbs -r rust.example.com:21117
+    command: hbbs -r rust.example.com:21117 # change to your own URL
     volumes:
-      - ./hbbs:/root
+      - ./hbbs:/root # if run on portainer, change the(.) current directory to absolute path
     networks:
       - rustdesk-net
     depends_on:
@@ -31,7 +31,7 @@ services:
     image: rustdesk/rustdesk-server:latest
     command: hbbr
     volumes:
-      - ./hbbr:/root
+      - ./hbbr:/root # if run on portainer, change the(.) current directory to absolute
     networks:
       - rustdesk-net
     restart: unless-stopped
