@@ -7,7 +7,7 @@ services:
     ports:
       - 5555:80
     volumes:
-      - /volume1/docker/bitwarden:/data
+      - ./data:/data # if run on portainer, change the(.) current directory to absolute path
     environment:
       WEBSOCKET_ENABLED: 'true' # Required to use websockets
       SIGNUPS_ALLOWED: 'true'   # set to false to disable signups
