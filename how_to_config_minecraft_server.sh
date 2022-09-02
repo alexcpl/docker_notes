@@ -10,7 +10,7 @@ services:
     ports:
       - 19132:19132/udp
     volumes:
-      - ./data:/data # if run on portainer, change the (.) current directory to abs path
+      - ./data:/data # if run on portainer, change the (.) current directory to absolute path
     stdin_open: true
     tty: true
     
