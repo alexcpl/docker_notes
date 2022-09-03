@@ -33,5 +33,5 @@ $ dpkg --install webmin_2.000_all.deb
 # ctop [--tree] [--refresh=] [--columns=] [--sort-col=] [--follow=] [--fold=, ...] ctop (-h | --help)
 $ wget https://raw.githubusercontent.com/yadutaf/ctop/master/cgroup_top.py -O ctop
 $ sudo chmod +x ctop
-$ sudo apt-get install cgroup-bin
+$ sudo apt-get install cgroup-tools
 $ ./ctop
