@@ -27,11 +27,3 @@ $ dpkg --install webmin_2.000_all.deb
 
 # access control panel --> https://server_ip:10000
 # to access chrome block page click on any empty space and type thisisunsafe
-
-# CTOP - Container Performance - https://linoxide.com/monitor-linux-containers-performance/
-# options
-# ctop [--tree] [--refresh=] [--columns=] [--sort-col=] [--follow=] [--fold=, ...] ctop (-h | --help)
-$ wget https://raw.githubusercontent.com/yadutaf/ctop/master/cgroup_top.py -O ctop
-$ sudo chmod +x ctop
-$ sudo apt-get install cgroup-tools
-$ ./ctop
