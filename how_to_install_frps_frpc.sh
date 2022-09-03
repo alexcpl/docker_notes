@@ -9,3 +9,9 @@ snowdreamtech/frps
 
 # firewall rules
 sudo iptables -A INPUT -p tcp --dport 7000 -j ACCEPT
+
+# frps frps.ini file
+# frps.ini
+[common]
+bind_port = 7000
+vhost_http_port = 8080
