@@ -1,9 +1,8 @@
 # FRPS
-
 docker run \
 --restart=always \
 --network host -d \
--v [/path/to/your/config/file]/frps.ini:/etc/frp/frps.ini \
+-v ./frps.ini:/etc/frp/frps.ini \ # because where you run the script, just in case change (.) to your absolute path
 --name frps \
 snowdreamtech/frps
 
@@ -15,3 +14,11 @@ sudo iptables -A INPUT -p tcp --dport 7000 -j ACCEPT
 [common]
 bind_port = 7000
 vhost_http_port = 8080
+
+#FRPC
+docker run \
+--restart=always \
+--network host -d \
+-v ./frpc.ini:/etc/frp/frpc.ini \ # because where you run the script, just in case change (.) to your absolute path
+--name frpc \
+snowdreamtech/frpc
