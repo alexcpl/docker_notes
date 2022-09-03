@@ -4,3 +4,5 @@ docker run -d \
 -v /vw-data/:/data/ \
 -p 5555:80 \
 vaultwarden/server:latest
+
+#require reverse proxy, the services require https to run
