@@ -53,14 +53,14 @@ custom_domains = frp.example.com
 type = tcp
 local_ip = 192.168.1.200
 local_port = 443
-remote_port = 4431
+remote_port = 1443
 custom_domains = frp.example.com
 
 [ssh]
 type = tcp
 local_ip = 192.168.1.200
 local_port = 22
-remote_port = 6339
+remote_port = 22
 custom_domains = ssh.example.com
 
 [range:services]
