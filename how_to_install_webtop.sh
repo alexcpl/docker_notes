@@ -24,6 +24,7 @@ services:
 # Display Chinese in webtop browser
 $ sudo apt update
 $ sudo apt install wget
+$ wget  https://github.com/Fangyh09/font-ttf/raw/master/simsun.ttc
 $ wget https://github.com/sonatype/maven-guide-zh/raw/master/content-zh/src/main/resources/fonts/simsun.ttc
 $ wget https://github.com/alexcpl/Linux_Chinese_Font_types/blob/master/simsun.ttc
 $ sudo mkdir /usr/share/fonts/win
