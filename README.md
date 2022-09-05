@@ -17,7 +17,4 @@ apt install nginx
 apt install curl  
 service reload nginx  
 service restart nginx  
-curl localhost  
-
-
-
+curl localhost
