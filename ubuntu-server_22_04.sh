@@ -27,3 +27,6 @@ $ dpkg --install webmin_2.000_all.deb
 
 # access control panel --> https://server_ip:10000
 # to access chrome block page click on any empty space and type thisisunsafe
+
+# Install watchtower to keep to containers update
+$ docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock -e WATCHTOWER_RUN_ONCE=TRUE containrrr/watchtower:latest
