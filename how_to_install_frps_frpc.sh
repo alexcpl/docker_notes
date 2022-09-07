@@ -2,7 +2,7 @@
 docker run \
 --restart=always \
 --network host -d \
--v ./frps.ini:/etc/frp/frps.ini \ # because where you run the script, just in case change (.) to your absolute path
+-v ./frps.ini:/etc/frp/frps.ini \ # becareful where you run the script, just in case change (.) to your absolute path
 --name frps \
 snowdreamtech/frps
 
@@ -19,7 +19,7 @@ vhost_http_port = 8080
 docker run \
 --restart=always \
 --network host -d \
--v ./frpc.ini:/etc/frp/frpc.ini \ # because where you run the script, just in case change (.) to your absolute path
+-v ./frpc.ini:/etc/frp/frpc.ini \ # becareful where you run the script, just in case change (.) to your absolute path
 --name frpc \
 snowdreamtech/frpc
 

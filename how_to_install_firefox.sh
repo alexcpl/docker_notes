@@ -8,7 +8,7 @@ services:
       - PGID=1000
       - TZ=Asia/Hong_Kong
     volumes:
-      - ./config:/config # because where you run the script, just in case change (.) to your absolute path
+      - ./config:/config # becareful where you run the script, just in case change (.) to your absolute path
     ports:
       - 3000:3000
     shm_size: "1gb"

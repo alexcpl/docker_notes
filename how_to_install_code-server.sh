@@ -15,7 +15,7 @@ services:
       - PROXY_DOMAIN=code-server.my.domain #optional
       - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
-      - ./config:/config # because where you run the script, just in case change (.) to your absolute path
+      - ./config:/config # becareful where you run the script, just in case change (.) to your absolute path
     ports:
       - 8443:8443
     restart: unless-stopped
@@ -32,7 +32,7 @@ services:
       - TZ=Asia/Hong_Kong
       - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
-      - ./config:/config # because where you run the script, just in case change (.) to your absolute path
+      - ./config:/config # becareful where you run the script, just in case change (.) to your absolute path
     ports:
       - 8443:8443
     restart: unless-stopped
