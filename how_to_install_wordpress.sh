@@ -55,3 +55,8 @@ services:
 networks:
   wp-network:
     driver: bridge
+    
+    
+# uploads.ini change the upload file size to 100Mb
+upload_max_filesize = 100M
+post_max_size = 100M
