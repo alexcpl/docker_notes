@@ -9,8 +9,11 @@ $ apt update && apt upgrade -y
 $ apt install docker.io
 $ apt install docker-compose
 
+# Create docker group
+$ sudo groupadd docker
 # Add user to docker group
-$ usermod -aG docker USERNAME
+$ sudo usermod -aG docker $USER
+$ sudo reboot
 
 # Install portiner
 # alt package json - https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Template/portainer-v2.json
