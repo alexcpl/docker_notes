@@ -63,7 +63,6 @@ post_max_size = 100M
 
 
 # docker-compose wordpress quick start
-# docker-compose wordpress quick start
 services:
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
