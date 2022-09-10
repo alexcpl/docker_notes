@@ -63,6 +63,7 @@ post_max_size = 100M
 
 
 # docker-compose wordpress quick start
+# docker-compose wordpress quick start
 services:
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
@@ -71,7 +72,7 @@ services:
     image: mysql:8.0.27
     command: '--default-authentication-plugin=mysql_native_password'
     volumes:
-      - db_data:/var/lib/mysql
+      - /home/alexcpl/docker/wordpress/db:/var/lib/mysql
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=wpiw795r2uyj#nMZTU
@@ -81,15 +82,39 @@ services:
     expose:
       - 3306
       - 33060
+    networks:
+      - wp-network
   wordpress:
     image: wordpress:latest
     ports:
-      - 80:80
+      - 8081:80
+    volumes:
+       - /home/alexcpl/docker/wordpress/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+       - /home/alexcpl/docker/wordpress/html:/var/www/html
     restart: always
     environment:
       - WORDPRESS_DB_HOST=db
       - WORDPRESS_DB_USER=wordpress
       - WORDPRESS_DB_PASSWORD=*CRbdrc7&YQmAN%@sm
       - WORDPRESS_DB_NAME=wordpress
+    networks:
+      - wp-network
+  wordpress-pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: cers-pma
+    depends_on:
+        - db
+    environment:
+        - PMA_HOST=db
+        - PMA_PORT=3306
+        - PMA_ARBITRARY=1
+    ports:
+        - 8082:80
+    restart: always
+    networks:
+      - wp-network
 volumes:
   db_data:
+networks:
+  wp-network:
+    driver: bridge
