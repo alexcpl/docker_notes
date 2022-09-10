@@ -60,3 +60,36 @@ networks:
 # uploads.ini change the upload file size to 100Mb
 upload_max_filesize = 100M
 post_max_size = 100M
+
+
+# docker-compose wordpress quick start
+services:
+  db:
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    #image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    image: mysql:8.0.27
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=wpiw795r2uyj#nMZTU
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=*CRbdrc7&YQmAN%@sm
+    expose:
+      - 3306
+      - 33060
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 80:80
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=*CRbdrc7&YQmAN%@sm
+      - WORDPRESS_DB_NAME=wordpress
+volumes:
+  db_data:
