@@ -69,6 +69,7 @@ services:
     #image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following line
     image: mysql:8.0.27
+    container_name: cers-db
     command: '--default-authentication-plugin=mysql_native_password'
     volumes:
       - /home/alexcpl/docker/wordpress/db:/var/lib/mysql
@@ -80,11 +81,13 @@ services:
       - MYSQL_PASSWORD=*CRbdrc7&YQmAN%@sm
     expose:
       - 3306
-      - 33060
     networks:
       - wp-network
   wordpress:
     image: wordpress:latest
+    container_name: cers-wordpress
+    depends_on:
+        - db
     ports:
       - 8081:80
     volumes:
