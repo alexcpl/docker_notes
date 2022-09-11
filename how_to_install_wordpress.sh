@@ -68,42 +68,45 @@ services:
     # We use a mariadb image which supports both amd64 & arm64 architecture
     #image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following line
+    # image: mysql:latest
     image: mysql:8.0.27
-    container_name: cers-db
+    container_name: [CONTAINER_NAME-db]
     command: '--default-authentication-plugin=mysql_native_password'
     volumes:
-      - /home/alexcpl/docker/wordpress/db:/var/lib/mysql
+      - [PROJECT_PATH]/db:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=wpiw795r2uyj#nMZTU
+      - MYSQL_ROOT_PASSWORD=[ROOT_PASSWORD]
       - MYSQL_DATABASE=wordpress
       - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=*CRbdrc7&YQmAN%@sm
+      - MYSQL_PASSWORD=[DATABASE_PASSWORD]
     expose:
       - 3306
     networks:
-      - wp-network
+      - [PROJECT]-network
+
   wordpress:
     image: wordpress:latest
-    container_name: cers-wordpress
+    container_name: [CONTAINER_NAME-wordpress]
     depends_on:
         - db
     ports:
       - 8081:80
     volumes:
-       - /home/alexcpl/docker/wordpress/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-       - /home/alexcpl/docker/wordpress/html:/var/www/html
+       - [PROJECT_PATH]/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+       - [PROJECT_PATH]/html:/var/www/html
     restart: always
     environment:
       - WORDPRESS_DB_HOST=db
       - WORDPRESS_DB_USER=wordpress
-      - WORDPRESS_DB_PASSWORD=*CRbdrc7&YQmAN%@sm
+      - WORDPRESS_DB_PASSWORD=[DATABASE_PASSWORD]
       - WORDPRESS_DB_NAME=wordpress
     networks:
-      - wp-network
+      - [PROJECT]-network
+
   wordpress-pma:
     image: phpmyadmin/phpmyadmin
-    container_name: cers-pma
+    container_name: [CONTAINER-pma]
     depends_on:
         - db
     environment:
@@ -114,9 +117,8 @@ services:
         - 8082:80
     restart: always
     networks:
-      - wp-network
-volumes:
-  db_data:
+      - [PROJECT]-network
+
 networks:
-  wp-network:
+  [PROJECT]-network:
     driver: bridge
