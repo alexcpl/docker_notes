@@ -25,7 +25,7 @@ services:
     expose:
       - 3306
     networks:
-      - [PROJECT]-network
+      - [PROJECT-network]
 
   wordpress:
     image: wordpress:latest
@@ -44,7 +44,7 @@ services:
       - WORDPRESS_DB_PASSWORD=[DATABASE_PASSWORD]
       - WORDPRESS_DB_NAME=wordpress
     networks:
-      - [PROJECT]-network
+      - [PROJECT-network]
 
   wordpress-pma:
     image: phpmyadmin/phpmyadmin
@@ -59,8 +59,8 @@ services:
         - 8082:80
     restart: always
     networks:
-      - [PROJECT]-network
+      - [PROJECT-network]
 
 networks:
-  [PROJECT]-network:
+  [PROJECT-network]:
     driver: bridge
