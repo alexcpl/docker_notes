@@ -3,6 +3,7 @@ upload_max_filesize = 100M
 post_max_size = 100M
 
 # .env file for enviroment variables
+PROJECT_NAME=[Project_Name]
 MYSQL_ROOT_PASSWORD=[VeryStrongAdminPassword]
 MYSQL_DATABASE=[ProjectDBName]
 MYSQL_USER=[MySQLUser]
@@ -18,7 +19,7 @@ services:
     # If you really want to use MySQL, uncomment the following line
     # image: mysql:latest
     image: mysql:8.0.27
-    container_name: [CONTAINER_NAME-db]
+    container_name: $PROJECT_NAME-db
     command: '--default-authentication-plugin=mysql_native_password'
     volumes:
       - [PROJECT_PATH]/db:/var/lib/mysql
@@ -36,7 +37,7 @@ services:
 
   wordpress:
     image: wordpress:latest
-    container_name: [CONTAINER_NAME-wordpress]
+    container_name: $PROJECT_NAME-wordpress
     depends_on:
         - db
     ports:
@@ -56,7 +57,7 @@ services:
 
   wordpress-pma:
     image: phpmyadmin/phpmyadmin
-    container_name: [CONTAINER-pma]
+    container_name: $PROJECT_NAME-pma
     depends_on:
         - db
     environment:
