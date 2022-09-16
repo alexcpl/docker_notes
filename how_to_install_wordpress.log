@@ -4,6 +4,7 @@ post_max_size = 100M
 
 # .env file for enviroment variables
 MYSQL_ROOT_PASSWORD=[VeryStrongAdminPassword]
+MYSQL_DATABASE=[ProjectDBName]
 MYSQL_USER=[MySQLUser]
 MYSQL_PASSWORD=[VeryStrongUserPassword]
 
@@ -21,11 +22,12 @@ services:
     volumes:
       - [PROJECT_PATH]/db:/var/lib/mysql
     restart: always
+    env_file: .env    
     environment:
-      - MYSQL_ROOT_PASSWORD=[ROOT_PASSWORD]
-      - MYSQL_DATABASE=wordpress
-      - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=[DATABASE_PASSWORD]
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=MYSQL_DATABASE
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
     expose:
       - 3306
     networks:
