@@ -2,6 +2,10 @@
 upload_max_filesize = 100M
 post_max_size = 100M
 
+# .env file for enviroment variables
+MYSQL_ROOT_PASSWORD=[VeryStrongAdminPassword]
+MYSQL_USER=[MySQLUser]
+MYSQL_PASSWORD=[VeryStrongUserPassword]
 
 # docker-compose wordpress quick start
 version: "3"
