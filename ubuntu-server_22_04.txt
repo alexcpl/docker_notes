@@ -34,3 +34,7 @@ $ dpkg --install webmin_2.000_all.deb
 
 # Install watchtower to keep to containers update
 $ docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock -e WATCHTOWER_RUN_ONCE=TRUE containrrr/watchtower:latest
+
+# Quickly check what port are open
+$ sudo apt install net-tools
+$ netstat -lptn
