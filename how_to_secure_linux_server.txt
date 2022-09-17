@@ -67,3 +67,8 @@ $ fail2ban-client -h
 $ fail2ban-client --version
 
 # tutorial - https://tinyurl.com/456z6a8n
+
+# Stop fail2ban
+$ fail2ban-client stop
+# Remove fail2ban files
+rm -rf /etc/fail2ban /etc/init.d/fail2ban /var/run/fail2ban /usr/share/doc/fail2ban /usr/local/bin/fail2ban* /usr/lib*/python*/site-packages/fail2ban /usr/local/lib*/python*/site-packages/fail2ban 
