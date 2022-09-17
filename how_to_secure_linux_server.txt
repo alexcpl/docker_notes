@@ -1,0 +1,48 @@
+# Firewall ufw uncomplicated firewall
+# as of 14-SEP-2022 UFW not compatiable with Docker, Docker use IPTables to route traffics.
+
+# Check Network status
+$ netstat -an
+$ sudo apt install ufw
+
+# IPv6
+$ sudo nano /etc/default/ufw
+# IPv6=no
+
+# Add firewall rule
+$ sudo ufw allow 22/tcp comment "SSH"
+$ sudo ufw enable
+$ sudo ufw status
+
+$ sudo nano /etc/default/docker and add the following line:
+> DOCKER_OPTS="--iptables=false"
+
+# Setting Up UFW Defaults
+$ sudo ufw default deny incoming
+$ sudo ufw default allow outgoing
+
+# Restrict SSH to user listed login only
+$ sudo nano /etc/ssh/sshd_config
+>> AllowUsers USERNAME,USERNAME2
+
+# Reboot the server
+$ sudo reboot
+
+# My server port list
+$ sudo ufw allow 8888/tcp comment "Filebrowser"
+$ sudo ufw allow 8081/tcp comment "CERS-Wordpress"
+$ sudo ufw allow 8084/tcp comment "PRINT-Wordpress"
+$ sudo ufw allow 8085/tcp comment "COLMAN-Wordpress"
+
+# User fail2ban to lock the user out for x amount of time
+$ sudo apt install fail2ban
+$ sudo nano /etc/fail3ban/jail.local
+>> [DEFAULT]
+>> bantime = 1h
+>> banaction = ufw
+>> [sshd]
+>> enabled = true
+
+# Restart service
+$ sudo systemctl enable --now fail2ban
+$ sudo systemctl restart sshd
