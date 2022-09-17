@@ -46,3 +46,24 @@ $ sudo nano /etc/fail3ban/jail.local
 # Restart service
 $ sudo systemctl enable --now fail2ban
 $ sudo systemctl restart sshd
+
+# ================ fail2ban ======================================================================================================
+# ================================================================================================================================
+# ================================================================================================================================
+# Install fail2ban on synology NAS - https://github.com/fail2ban/fail2ban
+$ wget --no-check-certificate https://github.com/fail2ban/fail2ban/archive/refs/tags/0.11.2.tar.gz -O ./fail2ban_0.11.2.tar.gz
+$ tar -zxvf fail2ban_0.11.2.tar.gz
+$ cd fail2ban-0.11.2
+$ sudo python setup.py install
+
+# if fail2ban.client not found, then do the following
+$ sudo mkdir /var/run/fail2ban
+$ sudo /usr/bin/fail2ban-client -c /etc/fail2ban start
+
+# display help
+$ fail2ban-client -h
+
+# display version
+$ fail2ban-client --version
+
+# tutorial - https://tinyurl.com/456z6a8n
