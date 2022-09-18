@@ -70,6 +70,9 @@ services:
     networks:
       - $NETWORK_NAME
 
+volumes:
+  db_data:
+
 networks:
   $NETWORK_NAME:
     driver: bridge
