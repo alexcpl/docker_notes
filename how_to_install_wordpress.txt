@@ -21,7 +21,7 @@ services:
     image: mysql:8.0.27
     command: '--default-authentication-plugin=mysql_native_password'
     volumes:
-      - /home/alexcpl/docker/localdemo/db:/var/lib/mysql
+      - [PROJECT_PATH]/db:/var/lib/mysql
     restart: always
     env_file: .env
     environment:
@@ -42,8 +42,8 @@ services:
     ports:
       - 8081:80
     volumes:
-       - /home/alexcpl/docker/localdemo/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-       - /home/alexcpl/docker/localdemo/html:/var/www/html
+       - [PROJECT_PATH]/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+       - [PROJECT_PATH]/html:/var/www/html
     restart: always
     env_file: .env
     environment:
