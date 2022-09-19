@@ -1,3 +1,8 @@
+# Get Public IP address
+$ curl ifconfig.me
+$ curl ipinfo.io/ip
+$ curl icanhazip.com
+
 # Add user
 $ adduser USERNAME
 $ usermod -aG sudo USERNAME
