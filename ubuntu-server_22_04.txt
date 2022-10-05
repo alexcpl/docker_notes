@@ -49,5 +49,5 @@ $ sudo synosystemctl restart sshd.service
 
 # SSH ken gen
 $ ssh-keygen -t rsa -b 4096
-$ ssh-copy-id rsync@nas_server_ip
+$ ssh-copy-id username@nas_server_ip
 $ ssh-copy-id -i ~/.ssh/id_rsa.pub alexcpl@192.168.38.18
