@@ -46,3 +46,7 @@ $ netstat -lptn
 
 # Synology restart ssh
 $ sudo synosystemctl restart sshd.service
+
+# SSH ken gen
+$ ssh-keygen -t rsa -b 4096
+$ ssh-copy-id rsync@nas_server_ip
