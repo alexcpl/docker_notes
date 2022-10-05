@@ -43,3 +43,6 @@ $ docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock -
 # Quickly check what port are open
 $ sudo apt install net-tools
 $ netstat -lptn
+
+# Synology restart ssh
+$ sudo synosystemctl restart sshd.service
