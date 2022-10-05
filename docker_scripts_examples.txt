@@ -40,3 +40,6 @@ docker run -d -p 3001:3001 --name node-server_1 -v $(pwd):/opt/nodeapp --link mo
 
 # Git command change remote url
 git remote set-url origin <new url>
+
+# Docker Compose
+docker-compose up -d && docker-compose logs -f
