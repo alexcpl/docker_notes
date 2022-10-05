@@ -1,3 +1,6 @@
+# Updat and Upgrade first
+$ sudo apt update && sudo apt upgrade -y
+
 # Get Public IP address
 $ curl ifconfig.me
 $ curl ipinfo.io/ip
