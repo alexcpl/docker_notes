@@ -31,6 +31,8 @@ services:
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
     expose:
       - 3306
+    security_opt:
+      - seccomp:unconfined
     networks:
       - $NETWORK_NAME
     container_name: $PROJECT_NAME-db
