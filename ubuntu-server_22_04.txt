@@ -55,3 +55,18 @@ $ sudo synosystemctl restart sshd.service
 $ ssh-keygen -t rsa -b 4096
 $ ssh-copy-id username@nas_server_ip
 $ ssh-copy-id -i ~/.ssh/id_rsa.pub alexcpl@192.168.38.18
+
+# Ubuntu Server 24.04 docker compose update
+#### [Install Docker Compose](https://wiki.crowncloud.net/?How_to_Install_and_use_Docker_Compose_on_Ubuntu_24_04#Install+Docker+Compose)
+
+* * * * *
+
+To install Docker Compose, you can use the below commands. You may need to download the latest version of Docker Compose from the official GitHub repository,
+
+```
+curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+```
+
+The above command will download and install the latest version of Docker Compose.
